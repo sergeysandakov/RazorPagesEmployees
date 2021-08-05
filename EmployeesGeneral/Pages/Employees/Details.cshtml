@@ -1,0 +1,47 @@
+﻿@page "{id}"
+@model EmployeesGeneral.Pages.Employees.DetailsModel
+@{
+    ViewData["Title"] = "Employee Details";
+    var photoPath = $"/images/{Model.Employee.PhotoPath ?? "standart.png"}";
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col col-lg-8">
+        <div class="card">
+
+            <div class="card-header">
+                <h3>@Model.Employee.Name</h3>
+            </div>
+
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col col-lg-9 textLeft">
+                        <h4 class="cardTextLeftFloating">Employee ID: <span class="font-weight-bold">@Model.Employee.Id</span></h4>
+                        <h4 class="cardTextLeftFloating">Email: <span class="font-weight-bold">@Model.Employee.Email</span></h4>
+                        <h4 class="cardTextLeftFloating">Departament: <span class="font-weight-bold">@Model.Employee.Dept</span></h4>
+                    </div>
+                    <div class="col col-lg-3">
+                        <div style="border: 1px solid rgb(128, 128, 128)">
+                            <img class="card-img-top" src="@photoPath" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card-footer text-center">
+                        <div>
+                            <a asp-page="/Employees/Employees" class="btn btn-success">Back</a>
+                            <a asp-page="/Employees/Edit" asp-route-ID="@Model.Employee.Id" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
